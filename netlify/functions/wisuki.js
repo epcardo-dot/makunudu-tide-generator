@@ -8,12 +8,26 @@ exports.handler = async function(event, context) {
 
     const html = await response.text();
 
+    const foundTide =
+      html.includes("High tide") ||
+      html.includes("Low tide");
+
+    const foundMoon =
+      html.includes("Moonrise") ||
+      html.includes("Moonset");
+
+    const foundSun =
+      html.includes("Sunrise") ||
+      html.includes("Sunset");
+
     return {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
         htmlLength: html.length,
-        first500Characters: html.substring(0, 500)
+        foundTide,
+        foundMoon,
+        foundSun
       })
     };
 
