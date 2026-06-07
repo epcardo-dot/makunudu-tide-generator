@@ -3,7 +3,6 @@
 <head>
     <title>Makunudu Tide Generator</title>
 </head>
-
 <body>
 
 <h1>Makunudu Tide Generator</h1>
@@ -22,6 +21,30 @@
 
 <script>
 
+const tideData = {
+
+    "2026-06-07": {
+        tide1: "5:00 AM High 0.48m",
+        tide2: "10:55 AM Low 0.16m",
+        tide3: "5:51 PM High 0.64m",
+        tide4: "-",
+        sunrise: "5:54 AM",
+        sunset: "6:15 PM",
+        moon: "Waning Gibbous 🌖"
+    },
+
+    "2026-06-08": {
+        tide1: "12:31 AM Low 0.24m",
+        tide2: "6:08 AM High 0.48m",
+        tide3: "11:44 AM Low 0.24m",
+        tide4: "6:27 PM High 0.60m",
+        sunrise: "5:54 AM",
+        sunset: "6:16 PM",
+        moon: "Last Quarter 🌗"
+    }
+
+};
+
 function generateChart() {
 
     let start = new Date(document.getElementById("startDate").value);
@@ -33,31 +56,34 @@ function generateChart() {
 
     while(current <= end) {
 
-        let dateText = current.toLocaleDateString("en-GB", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric"
-        });
+        let key =
+            current.getFullYear() + "-" +
+            String(current.getMonth()+1).padStart(2,"0") + "-" +
+            String(current.getDate()).padStart(2,"0");
 
-        rows += `
-        <tr>
-            <td>${dateText}</td>
-            <td style="color:blue;">High Tide</td>
-            <td style="color:red;">Low Tide</td>
-            <td style="color:blue;">High Tide</td>
-            <td style="color:red;">Low Tide</td>
-            <td>5:55 AM</td>
-            <td>6:16 PM</td>
-            <td>🌙 TBD</td>
-        </tr>
-        `;
+        if(tideData[key]) {
 
-        current.setDate(current.getDate() + 1);
+            let d = tideData[key];
+
+            rows += `
+            <tr>
+                <td>${key}</td>
+                <td>${d.tide1}</td>
+                <td>${d.tide2}</td>
+                <td>${d.tide3}</td>
+                <td>${d.tide4}</td>
+                <td>${d.sunrise}</td>
+                <td>${d.sunset}</td>
+                <td>${d.moon}</td>
+            </tr>
+            `;
+        }
+
+        current.setDate(current.getDate()+1);
     }
 
     document.getElementById("result").innerHTML = `
         <h2>MAKUNUDU ISLAND</h2>
-
         <h3>TIDE CHART - KAAFU ATOLL (MALE)</h3>
 
         <table border="1" cellpadding="6">
