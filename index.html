@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Start Date: [________]
-
-End Date:   [________]
-
-[ Generate ]</title>
+    <title>Makunudu Tide Generator</title>
 </head>
 <body>
-    <h1>Start Date: [________]
 
-End Date:   [________]
+<h1>Makunudu Tide Generator</h1>
 
-[ Generate ]</h1>
+<label>Start Date:</label>
+<input type="date" id="startDate">
 
-    <p>Welcome Ricardo Gonzalez!</p>
+<label>End Date:</label>
+<input type="date" id="endDate">
 
-    <p>This website will eventually generate:</p>
+<button onclick="generateChart()">Generate</button>
 
-    <ul>
-        <li>Tide Charts</li>
-        <li>Moon Phases</li>
-        <li>Sunrise / Sunset</li>
-        <li>Makunudu Posters</li>
-    </ul>
+<hr>
+
+<div id="result"></div>
+
+<script>
+function generateChart() {
+
+    let start = document.getElementById("startDate").value;
+    let end = document.getElementById("endDate").value;
+
+    document.getElementById("result").innerHTML =
+        "<h2>Generating Chart</h2>" +
+        "<p>Start Date: " + start + "</p>" +
+        "<p>End Date: " + end + "</p>";
+}
+</script>
+
 </body>
 </html>
