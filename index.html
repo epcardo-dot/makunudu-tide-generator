@@ -20,39 +20,54 @@
     <div id="result"></div>
 
     <script>
-        function generateChart() {
+```javascript
+function generateChart() {
 
-            let start = document.getElementById("startDate").value;
-            let end = document.getElementById("endDate").value;
+    let start = document.getElementById("startDate").value;
+    let end = document.getElementById("endDate").value;
 
-            document.getElementById("result").innerHTML = `
-                <h2>Makunudu Tide Chart</h2>
+    document.getElementById("result").innerHTML = `
+        <h2>MAKUNUDU ISLAND</h2>
+        <h3>TIDE CHART - KAAFU ATOLL (MALE)</h3>
 
-                <p><b>Start Date:</b> ${start}</p>
-                <p><b>End Date:</b> ${end}</p>
+        <p><b>Start Date:</b> ${start}</p>
+        <p><b>End Date:</b> ${end}</p>
 
-                <table border="1" cellpadding="8">
-                    <tr>
-                        <th>Date</th>
-                        <th>High Tide</th>
-                        <th>Low Tide</th>
-                    </tr>
+        <table border="1" cellpadding="6">
+            <tr>
+                <th>Date</th>
+                <th>1st Tide</th>
+                <th>2nd Tide</th>
+                <th>3rd Tide</th>
+                <th>4th Tide</th>
+                <th>Sunrise</th>
+                <th>Sunset</th>
+                <th>Moon Phase</th>
+            </tr>
 
-                    <tr>
-                        <td>07 Jun 2026</td>
-                        <td style="color:blue;">0.48 m</td>
-                        <td style="color:red;">0.16 m</td>
-                    </tr>
+            <tr>
+                <td>07 Jun 2026</td>
+                <td style="color:blue;">5:00 AM High 0.48m</td>
+                <td style="color:red;">10:55 AM Low 0.16m</td>
+                <td style="color:blue;">5:51 PM High 0.64m</td>
+                <td>-</td>
+                <td>5:54 AM</td>
+                <td>6:15 PM</td>
+                <td>Waning Gibbous 🌖</td>
+            </tr>
 
-                    <tr>
-                        <td>08 Jun 2026</td>
-                        <td style="color:blue;">0.51 m</td>
-                        <td style="color:red;">0.20 m</td>
-                    </tr>
-                </table>
-            `;
-        }
-    </script>
+            <tr>
+                <td>08 Jun 2026</td>
+                <td style="color:red;">12:31 AM Low 0.24m</td>
+                <td style="color:blue;">6:08 AM High 0.48m</td>
+                <td style="color:red;">11:44 AM Low 0.24m</td>
+                <td style="color:blue;">6:27 PM High 0.60m</td>
+                <td>5:54 AM</td>
+                <td>6:16 PM</td>
+                <td>Last Quarter 🌗</td>
+            </tr>
 
-</body>
-</html>
+        </table>
+    `;
+}
+```
